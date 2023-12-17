@@ -4,6 +4,7 @@ import com.example.ramobackend.model.OrderItem;
 import com.example.ramobackend.services.OrderItemService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class OrderItemController {
     public OrderItemController(OrderItemService orderItemService) {
         this.orderItemService = orderItemService;
     }
-
+    @PreAuthorize("isAuthenticated()")
     @GetMapping()
     public ResponseEntity<List<OrderItem>> getAlle(){
         return new ResponseEntity<>(orderItemService.getAlleOrderItems(), HttpStatus.OK);

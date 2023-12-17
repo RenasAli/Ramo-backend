@@ -4,6 +4,7 @@ import com.example.ramobackend.model.ProductItem;
 import com.example.ramobackend.services.ProductItemService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,18 +45,18 @@ public class ProductItemController {
                                                                          ){
         return new ResponseEntity<>(productItemService.getProductItemByProductItemNumber(productItemNumber), HttpStatus.OK);
     }
-
+    @PreAuthorize("isAuthenticated()")
     @PostMapping()
     public ResponseEntity<ProductItem> createProductItem(@RequestBody ProductItem product){
         return new ResponseEntity<>(productItemService.createProductItem(product), HttpStatus.OK);
     }
-
+    @PreAuthorize("isAuthenticated()")
     @PatchMapping("/{ProductItemId}")
     public ResponseEntity<ProductItem> editProductItemById(@PathVariable("ProductItemId") Long ProductItemId,
                                                    @RequestBody ProductItem productItem){
         return new ResponseEntity<>(productItemService.editProductItemsById(ProductItemId, productItem), HttpStatus.OK);
     }
-
+    @PreAuthorize("isAuthenticated()")
     @DeleteMapping("/{ProductItemId}")
     public void deleteProductItemById(@PathVariable("ProductItemId") Long ProductItemId){
         productItemService.deleteProductItemById(ProductItemId);

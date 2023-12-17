@@ -4,6 +4,7 @@ import com.example.ramobackend.model.Subimages;
 import com.example.ramobackend.services.SubimageService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class SubimagesController {
                 subimageService.getAlleSubImagesByProductItemSubimageNumber(productItemSubimageNumber), HttpStatus.OK);
 
     }
-
+    @PreAuthorize("isAuthenticated()")
     @PostMapping("/{productItemId}")
     public ResponseEntity<Subimages> createSubImages(@PathVariable ("productItemId") Long productItemId,
             @RequestBody Subimages subimages){

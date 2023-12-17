@@ -19,8 +19,8 @@ public class ProductsCategoryController {
         this.productsCategoryService = productsCategoryService;
     }
 
+
     @GetMapping()
-    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<List<ProductsCategory>> getAllProductsCategories(){
         return new ResponseEntity<>(productsCategoryService.getAllProductsCategories(), HttpStatus.OK);
     }
@@ -29,12 +29,12 @@ public class ProductsCategoryController {
     public ResponseEntity<ProductsCategory> getAllProductsCategoryByName(@PathVariable("categoryName") String categoryName){
         return new ResponseEntity<>(productsCategoryService.getProductsCategoryByName(categoryName), HttpStatus.OK);
     }
-
+    @PreAuthorize("isAuthenticated()")
     @PostMapping()
     public ResponseEntity<ProductsCategory> createProductsCategory(@RequestBody ProductsCategory productsCategory){
         return new ResponseEntity<>(productsCategoryService.createProductsCategory(productsCategory), HttpStatus.OK);
     }
-
+    @PreAuthorize("isAuthenticated()")
     @PatchMapping("/{categoryId}")
     public ResponseEntity<ProductsCategory> editProductsCategoryById(@PathVariable("categoryId") Long categoryId,
                                                                      @RequestBody ProductsCategory productsCategory){

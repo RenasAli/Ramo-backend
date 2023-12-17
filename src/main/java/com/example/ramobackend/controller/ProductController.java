@@ -6,6 +6,7 @@ import com.example.ramobackend.model.ProductsCategory;
 import com.example.ramobackend.services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,12 +35,12 @@ public class ProductController {
     public ResponseEntity<Product> getProductsByyName(@PathVariable("productName") String productName){
         return new ResponseEntity<>(productService.getProductByName(productName), HttpStatus.OK);
     }
-
+    @PreAuthorize("isAuthenticated()")
     @PostMapping()
     public ResponseEntity<Product> createProduct(@RequestBody Product product){
         return new ResponseEntity<>(productService.createProduct(product), HttpStatus.OK);
     }
-
+    @PreAuthorize("isAuthenticated()")
     @PatchMapping("/{ProductId}")
     public ResponseEntity<Product> editProductById(@PathVariable("ProductId") Long ProductId,
                                                    @RequestBody Product product){
