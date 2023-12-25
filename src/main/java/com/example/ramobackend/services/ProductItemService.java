@@ -52,20 +52,20 @@ public class ProductItemService {
 
     public  ProductItem editProductItemsById(Long productItemId, ProductItem productItem){
         ProductItem editedProductItem = productItemRepository.findById(productItemId).get();
-        editedProductItem.setName(productItem.getName());
-        editedProductItem.setBrand(productItem.getBrand());
-        editedProductItem.setColor(productItem.getColor());
-        editedProductItem.setUrl(productItem.getUrl());
-        editedProductItem.setImg(productItem.getImg());
-        editedProductItem.setPrice(productItem.getPrice());
-        editedProductItem.setType(productItem.getType());
-        editedProductItem.setDescription(productItem.getDescription());
-        editedProductItem.setInfo(productItem.getInfo());
-        editedProductItem.setSerie(productItem.getSerie());
-        editedProductItem.setHight(productItem.getHight());
-        editedProductItem.setWidth(productItem.getWidth());
-        editedProductItem.setDepth(productItem.getDepth());
-        editedProductItem.setProduct(productItem.getProduct());
+        if(productItem.getName() != null){editedProductItem.setName(productItem.getName());}
+        if(productItem.getBrand() != null){editedProductItem.setBrand(productItem.getBrand());}
+        if(productItem.getColor() != null){editedProductItem.setColor(productItem.getColor());}
+        if(productItem.getUrl() != null){editedProductItem.setUrl(productItem.getUrl());}
+        if(productItem.getImg() != null){editedProductItem.setImg(productItem.getImg());}
+        if(productItem.getPrice() != 0){editedProductItem.setPrice(productItem.getPrice());}
+        if(productItem.getType() != null){editedProductItem.setType(productItem.getType());}
+        if(productItem.getDescription() != null){
+            editedProductItem.setDescription(productItem.getDescription());}
+        if(productItem.getInfo() != null){editedProductItem.setInfo(productItem.getInfo());}
+        if(productItem.getSerie() != null){editedProductItem.setSerie(productItem.getSerie());}
+        if(productItem.getHight() != null){editedProductItem.setHight(productItem.getHight());}
+        if(productItem.getWidth() != null){editedProductItem.setWidth(productItem.getWidth());}
+        if(productItem.getDepth() != null){editedProductItem.setDepth(productItem.getDepth());}
 
         return productItemRepository.save(editedProductItem);
     }

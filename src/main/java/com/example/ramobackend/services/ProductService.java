@@ -22,12 +22,8 @@ public class ProductService {
         return (List<Product>) productRepository.findAll();
     }
 
-    public List<Product> getAllProductsByProductsCategory(ProductsCategory category){
-        return (List<Product>) productRepository.findAllByProductCategory(category);
-    }
-
-    public Product getProductByName(String name){
-        return productRepository.findProductByProductName(name);
+    public Product getProductById(Long id){
+        return productRepository.findById(id).get();
     }
 
 
@@ -40,12 +36,15 @@ public class ProductService {
 
     public Product editProductById(Long productId, Product product){
         Product editedProduct = productRepository.findById(productId).get();
-
-        editedProduct.setProductName(product.getProductName());
-        editedProduct.setProductUrl(product.getProductUrl());
-        editedProduct.setProductImg(product.getProductImg());
-        editedProduct.setProductDescription(product.getProductDescription());
+        if (product.getProductName() != null){editedProduct.setProductName(product.getProductName());}
+        if (product.getProductUrl() != null){editedProduct.setProductUrl(product.getProductUrl());}
+        if (product.getProductImg() != null){editedProduct.setProductImg(product.getProductImg());}
+        if (product.getProductDescription() != null){editedProduct.setProductDescription(product.getProductDescription());}
 
         return productRepository.save(editedProduct);
+    }
+
+    public void deleteProductById(Long productId){
+        productRepository.deleteById(productId);
     }
 }

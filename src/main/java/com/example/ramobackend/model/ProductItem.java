@@ -80,6 +80,6 @@ public class ProductItem {
 
     @JsonBackReference
     @OneToMany(mappedBy = "ProductItem")
-    private List<Subimages> Subimages= new ArrayList<>();
+    private List<SubImages> subImages= new ArrayList<>();
 
 }

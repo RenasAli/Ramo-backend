@@ -1,8 +1,6 @@
 package com.example.ramobackend.controller;
 
 import com.example.ramobackend.model.Product;
-import com.example.ramobackend.model.ProductItem;
-import com.example.ramobackend.model.ProductsCategory;
 import com.example.ramobackend.services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,14 +24,9 @@ public class ProductController {
         return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
     }
 
-    @GetMapping("/{categoryName}")
-    public ResponseEntity<List<Product>> getAllProductsByCategoryName(@PathVariable("categoryName") ProductsCategory category){
-        return new ResponseEntity<>(productService.getAllProductsByProductsCategory(category), HttpStatus.OK);
-    }
-
-    @GetMapping("/product-name/{productName}")
-    public ResponseEntity<Product> getProductsByyName(@PathVariable("productName") String productName){
-        return new ResponseEntity<>(productService.getProductByName(productName), HttpStatus.OK);
+    @GetMapping("/{productId}")
+    public ResponseEntity<Product> getProductById(@PathVariable("productId") Long id){
+        return new ResponseEntity<>(productService.getProductById(id), HttpStatus.OK);
     }
     @PreAuthorize("isAuthenticated()")
     @PostMapping()
@@ -45,5 +38,11 @@ public class ProductController {
     public ResponseEntity<Product> editProductById(@PathVariable("ProductId") Long ProductId,
                                                    @RequestBody Product product){
         return new ResponseEntity<>(productService.editProductById(ProductId, product), HttpStatus.OK);
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @DeleteMapping("/{productId}")
+    public void deleteProductById(@PathVariable("productId") Long productId){
+        productService.deleteProductById(productId);
     }
 }

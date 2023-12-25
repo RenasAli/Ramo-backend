@@ -23,8 +23,8 @@ public class ProductsCategory {
 
     @Column(name = "products_category_name")
     private String categoryName;
-
-    @Column(name = "products_category_description")
+    @Lob
+    @Column(name = "products_category_description", length = 5000)
     private String categoryDescription;
 
     @Column(name = "products_category_url")

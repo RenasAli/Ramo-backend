@@ -1,11 +1,11 @@
 package com.example.ramobackend.controller;
 
-import com.example.ramobackend.JwtTokenManager;
+import com.example.ramobackend.securityServices.JwtTokenManager;
 import com.example.ramobackend.model.JwtRequestModel;
 import com.example.ramobackend.model.JwtResponseModel;
 import com.example.ramobackend.model.User;
-import com.example.ramobackend.services.IUserService;
-import com.example.ramobackend.services.JwtUserDetailsService;
+import com.example.ramobackend.securityServices.IUserService;
+import com.example.ramobackend.securityServices.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

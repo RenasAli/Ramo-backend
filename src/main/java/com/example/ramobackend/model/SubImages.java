@@ -14,17 +14,17 @@ import lombok.ToString;
 @NoArgsConstructor
 @Entity
 @Table(name = "subimages")
-public class Subimages {
+public class SubImages {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "subiamge_url")
-    private String subimageUrl;
+    @Column(name = "subimage_url")
+    private String subImageUrl;
 
     @Column(name = "product_item_subimage_nr")
-    private Integer  productItemSubimageNumber;
+    private Integer  productItemSubImageNumber;
 
     @Column(name = "product_item_id")
     private Long productItemId;

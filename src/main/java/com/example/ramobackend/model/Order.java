@@ -22,7 +22,7 @@ public class Order {
     @Column(name = "order_id")
     private Long orderId;
 
-    @Column(name = "order_number")
+    @Column(name = "order_number", unique = true)
     private Integer orderNumber;
 
     @Column(name = "customer_company_name")

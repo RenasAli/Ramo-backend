@@ -25,9 +25,9 @@ public class ProductsCategoryController {
         return new ResponseEntity<>(productsCategoryService.getAllProductsCategories(), HttpStatus.OK);
     }
 
-    @GetMapping("/{categoryName}")
-    public ResponseEntity<ProductsCategory> getAllProductsCategoryByName(@PathVariable("categoryName") String categoryName){
-        return new ResponseEntity<>(productsCategoryService.getProductsCategoryByName(categoryName), HttpStatus.OK);
+    @GetMapping("/{categoryId}")
+    public ResponseEntity<ProductsCategory> getProductsCategoryById(@PathVariable("categoryId") Long categoryId){
+        return new ResponseEntity<>(productsCategoryService.getProductsCategoryById(categoryId), HttpStatus.OK);
     }
     @PreAuthorize("isAuthenticated()")
     @PostMapping()
@@ -41,5 +41,10 @@ public class ProductsCategoryController {
         return new ResponseEntity<>(productsCategoryService.editProductsCategoryById(categoryId, productsCategory), HttpStatus.OK);
     }
 
+    @PreAuthorize("isAuthenticated()")
+    @DeleteMapping("/{productCategoryId}")
+    public void deleteById(@PathVariable("productCategoryId") Long productCategoryId){
+        productsCategoryService.deleteById(productCategoryId);
+    }
 
 }

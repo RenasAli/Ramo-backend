@@ -1,8 +1,9 @@
 package com.example.ramobackend.services;
 
-import com.example.ramobackend.Configuration.SecurityConfiguration;
+import com.example.ramobackend.configuration.SecurityConfiguration;
 import com.example.ramobackend.model.User;
 import com.example.ramobackend.repositories.UserRepository;
+import com.example.ramobackend.securityServices.IUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

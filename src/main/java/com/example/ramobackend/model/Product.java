@@ -31,7 +31,8 @@ public class Product {
     @Column(name = "product_img")
     private String productImg;
 
-    @Column(name = "product_description")
+    @Lob
+    @Column(name = "product_description", length = 5000)
     private String productDescription;
 
     @Column(name = "product_category_name")

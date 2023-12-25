@@ -1,4 +1,4 @@
-package com.example.ramobackend;
+package com.example.ramobackend.securityServices;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

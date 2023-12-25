@@ -41,9 +41,11 @@ public class ProductItemController {
         return new ResponseEntity<>(productItemService.getAllProductItemsByProductName(productName), HttpStatus.OK);
     }
     @GetMapping("/productItemNumber/{productItemNumber}")
-    public ResponseEntity<ProductItem> getProductItemByProductItemNumber(@PathVariable("productItemNumber") Integer productItemNumber
+    public ResponseEntity<ProductItem> getProductItemByProductItemNumber(
+            @PathVariable("productItemNumber") Integer productItemNumber
                                                                          ){
-        return new ResponseEntity<>(productItemService.getProductItemByProductItemNumber(productItemNumber), HttpStatus.OK);
+        return new ResponseEntity<>(
+                productItemService.getProductItemByProductItemNumber(productItemNumber), HttpStatus.OK);
     }
     @PreAuthorize("isAuthenticated()")
     @PostMapping()
@@ -57,9 +59,9 @@ public class ProductItemController {
         return new ResponseEntity<>(productItemService.editProductItemsById(ProductItemId, productItem), HttpStatus.OK);
     }
     @PreAuthorize("isAuthenticated()")
-    @DeleteMapping("/{ProductItemId}")
-    public void deleteProductItemById(@PathVariable("ProductItemId") Long ProductItemId){
-        productItemService.deleteProductItemById(ProductItemId);
+    @DeleteMapping("/{productItemId}")
+    public void deleteProductItemById(@PathVariable("productItemId") Long productItemId){
+        productItemService.deleteProductItemById(productItemId);
     }
 
 
