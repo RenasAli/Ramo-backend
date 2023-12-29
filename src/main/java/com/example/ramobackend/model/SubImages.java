@@ -32,6 +32,6 @@ public class SubImages {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "product_item")
-    private ProductItem ProductItem;
+    private ProductItem productItem;
 
 }

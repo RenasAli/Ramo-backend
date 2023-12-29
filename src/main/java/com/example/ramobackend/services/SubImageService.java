@@ -33,7 +33,7 @@ public class SubImageService {
         return subImageRepository.save(subImages);
     }
 
-    public void deleteSubImagesById(Long subImagesId){
-        subImageRepository.deleteById(subImagesId);
+    public void deleteSubImagesById(Long subImageId){
+        subImageRepository.deleteById(subImageId);
     }
 }

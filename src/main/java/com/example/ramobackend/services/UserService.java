@@ -36,15 +36,6 @@ public class UserService  implements IUserService {
         userRepository.delete(object);
     }
 
-    @Override
-    public void deleteById(Long aLong) {
-
-    }
-
-    @Override
-    public Optional<User> findById(Long aLong) {
-        return userRepository.findById(aLong);
-    }
 
     @Override
     public List<User> findByName(String name) {

@@ -8,6 +8,7 @@ import com.example.ramobackend.securityServices.IUserService;
 import com.example.ramobackend.securityServices.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
@@ -20,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin
+
 @RequestMapping("/api/user")
 public class UserController {
     @Autowired
@@ -31,7 +32,7 @@ public class UserController {
     private JwtTokenManager jwtTokenManager;
     @Autowired
     private IUserService userService;
-
+    @PreAuthorize("isAuthenticated()")
     @PostMapping("/signup")
     public ResponseEntity<JwtResponseModel> signup(@RequestBody JwtRequestModel request){
         System.out.println("signup: username:" + request.getUsername() + " password: " + request.getUserPassword());
@@ -66,14 +67,8 @@ public class UserController {
     }
 
 
-    @PostMapping("/getSecret")
-    public ResponseEntity<Map> getSecret() {
-        System.out.println("getSecret is called");
-        Map<String,String > map = new HashMap<>();
-        map.put("message","this is secret from server");
-        return ResponseEntity.ok(map);
-    }
 
+    @PreAuthorize("isAuthenticated()")
     @DeleteMapping("/deleteUser")
     public ResponseEntity<Map> deleteUser(@RequestBody User user) {
         System.out.println("deleteUser is called with user: " + user.getUsername());

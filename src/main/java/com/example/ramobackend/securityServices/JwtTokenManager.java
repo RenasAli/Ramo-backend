@@ -13,7 +13,8 @@ import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
+//Den er kopiet fra Jons JWTprep repository
+// https://github.com/joneikholmkea/JWTprep
 @Component
 public class JwtTokenManager {
     public static final long TOKEN_VALIDITY = 10 * 60 * 60 * 1000;

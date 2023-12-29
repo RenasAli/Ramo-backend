@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface ProductItemRepository extends CrudRepository<ProductItem, Long> {
-    ProductItem findAllByProductTypeName(String productName);
     ProductItem findProductItemByProductItemNumber(Integer productItemNumber);
     boolean existsByProductItemNumber(Integer productItemNumber);
 

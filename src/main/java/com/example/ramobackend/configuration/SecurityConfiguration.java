@@ -19,6 +19,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @AllArgsConstructor
 @EnableMethodSecurity
+
+//Den er kopiet fra Jons JWTprep repository
+// https://github.com/joneikholmkea/JWTprep
 public class SecurityConfiguration implements WebMvcConfigurer {
     private JwtAuthenticationEntryPoint authenticationEntryPoint;
     private JwtFilter filter;

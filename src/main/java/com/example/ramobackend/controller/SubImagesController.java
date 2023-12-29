@@ -10,38 +10,38 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+
 @RequestMapping("/api/category/products/items/subimages")
 public class SubImagesController {
-    SubImageService subimageService;
+    SubImageService subImageService;
 
-    public SubImagesController(SubImageService subimageService) {
-        this.subimageService = subimageService;
+    public SubImagesController(SubImageService subImageService) {
+        this.subImageService = subImageService;
     }
 
     @GetMapping()
     public ResponseEntity<List<SubImages>> getAlleSubImages(){
-        return new ResponseEntity<>(subimageService.getAllSubImages(), HttpStatus.OK);
+        return new ResponseEntity<>(subImageService.getAllSubImages(), HttpStatus.OK);
     }
 
     @GetMapping("/product-number/{productItemSubImageNumber}")
     public ResponseEntity<List<SubImages>> getAlleSubImagesByProductItemSubimageNumber(
             @PathVariable("productItemSubImageNumber") Integer productItemSubImageNumber){
         return new ResponseEntity<>(
-                subimageService.getAlleSubImagesByProductItemSubImageNumber(productItemSubImageNumber), HttpStatus.OK);
+                subImageService.getAlleSubImagesByProductItemSubImageNumber(productItemSubImageNumber), HttpStatus.OK);
 
     }
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/{productItemId}")
     public ResponseEntity<SubImages> createSubImages(@PathVariable ("productItemId") Long productItemId,
             @RequestBody SubImages subimages){
-        return new ResponseEntity<>(subimageService.createSubImages(subimages, productItemId), HttpStatus.OK);
+        return new ResponseEntity<>(subImageService.createSubImages(subimages, productItemId), HttpStatus.OK);
     }
 
     @PreAuthorize("isAuthenticated()")
-    @DeleteMapping("/{subImagesId}")
-    public void deleteSubImagesById(@PathVariable("subImagesId") Long subImagesId){
-        subimageService.deleteSubImagesById(subImagesId);
+    @DeleteMapping("/{subImageId}")
+    public void deleteSubImagesById(@PathVariable("subImageId") Long subImageId){
+        subImageService.deleteSubImagesById(subImageId);
     }
 }
 

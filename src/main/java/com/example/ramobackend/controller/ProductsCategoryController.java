@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+
 @RequestMapping("/api/category")
 public class ProductsCategoryController {
     ProductsCategoryService productsCategoryService;

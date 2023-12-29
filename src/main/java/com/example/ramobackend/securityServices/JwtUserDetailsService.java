@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//Den er kopiet fra Jons JWTprep repository
+// https://github.com/joneikholmkea/JWTprep
 @Service
 @AllArgsConstructor
 public class JwtUserDetailsService implements UserDetailsService {

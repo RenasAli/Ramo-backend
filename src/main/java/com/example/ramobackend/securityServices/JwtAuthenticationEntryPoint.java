@@ -8,7 +8,8 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.Serializable;
-
+//Den er kopiet fra Jons JWTprep repository
+// https://github.com/joneikholmkea/JWTprep
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint,
         Serializable {

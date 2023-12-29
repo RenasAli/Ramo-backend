@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+
 @RequestMapping("/api/category/products/items")
 public class ProductItemController {
     ProductItemService productItemService;
@@ -35,11 +35,7 @@ public class ProductItemController {
                 HttpStatus.OK);
     }
 
-    @GetMapping("/{productName}")
-    public ResponseEntity<List<ProductItem>> getAllProductItemsByProductName(
-            @PathVariable("productName") String productName){
-        return new ResponseEntity<>(productItemService.getAllProductItemsByProductName(productName), HttpStatus.OK);
-    }
+
     @GetMapping("/productItemNumber/{productItemNumber}")
     public ResponseEntity<ProductItem> getProductItemByProductItemNumber(
             @PathVariable("productItemNumber") Integer productItemNumber
@@ -53,10 +49,10 @@ public class ProductItemController {
         return new ResponseEntity<>(productItemService.createProductItem(product), HttpStatus.OK);
     }
     @PreAuthorize("isAuthenticated()")
-    @PatchMapping("/{ProductItemId}")
-    public ResponseEntity<ProductItem> editProductItemById(@PathVariable("ProductItemId") Long ProductItemId,
+    @PatchMapping("/{productItemId}")
+    public ResponseEntity<ProductItem> editProductItemById(@PathVariable("productItemId") Long productItemId,
                                                    @RequestBody ProductItem productItem){
-        return new ResponseEntity<>(productItemService.editProductItemsById(ProductItemId, productItem), HttpStatus.OK);
+        return new ResponseEntity<>(productItemService.editProductItemsById(productItemId, productItem), HttpStatus.OK);
     }
     @PreAuthorize("isAuthenticated()")
     @DeleteMapping("/{productItemId}")

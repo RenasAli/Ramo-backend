@@ -14,7 +14,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.IOException;
 
-
+//Den er kopiet fra Jons JWTprep repository
+// https://github.com/joneikholmkea/JWTprep
 @AllArgsConstructor
 @Component
 public class JwtFilter extends OncePerRequestFilter {
@@ -27,7 +28,7 @@ public class JwtFilter extends OncePerRequestFilter {
                                     HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         String tokenHeader = request.getHeader("Authorization");
-        System.out.println("JwtFilter doFilterInternal call 3 request header" + tokenHeader ); // + JwtController.printHeader(request)
+        System.out.println("JwtFilter doFilterInternal call 3 request header" + tokenHeader );
         String username = null;
         String token = null;
         if (tokenHeader != null && tokenHeader.startsWith("Bearer ")) {
@@ -41,7 +42,7 @@ public class JwtFilter extends OncePerRequestFilter {
             System.out.println("String does not start with Bearer or tokenheader == NULL");
         }
         validateToken(request, username, token);
-        filterChain.doFilter(request, response); //possible: response.setHeader( "key",value); its up to you.
+        filterChain.doFilter(request, response);
     }
 
     private void validateToken(HttpServletRequest request, String username, String token) {

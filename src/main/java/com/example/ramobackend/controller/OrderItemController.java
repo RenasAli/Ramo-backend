@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+
 @RequestMapping("/api/order/orderItem")
 public class OrderItemController {
     OrderItemService orderItemService;

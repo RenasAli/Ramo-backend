@@ -28,9 +28,7 @@ public class ProductItemService {
         return (List<ProductItem>) productItemRepository.findAll();
     }
 
-    public List<ProductItem> getAllProductItemsByProductName( String productName){
-        return (List<ProductItem>) productItemRepository.findAllByProductTypeName(productName);
-    }
+
 
     public List<ProductItem> getAllFilteredProductItems(Long productId, List<String>  brand, List<String> color,
                                                         List<String> type, List<String> serie, List<Integer> hight,
