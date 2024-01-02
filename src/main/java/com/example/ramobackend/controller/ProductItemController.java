@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 
-@RequestMapping("/api/category/products/items")
+@RequestMapping("/app/v1/api/category/products/items")
 public class ProductItemController {
     ProductItemService productItemService;
 

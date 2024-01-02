@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 
-@RequestMapping("/api/category/products/items/subimages")
+@RequestMapping("/app/v1/api/category/products/items/subimages")
 public class SubImagesController {
     SubImageService subImageService;
 

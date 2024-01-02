@@ -22,7 +22,7 @@ import java.util.Map;
 
 @RestController
 
-@RequestMapping("/api/user")
+@RequestMapping("/app/v1/api/user")
 public class UserController {
     @Autowired
     private JwtUserDetailsService userDetailsService;

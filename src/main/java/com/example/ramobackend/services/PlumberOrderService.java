@@ -49,7 +49,7 @@ public class PlumberOrderService {
     private int generateUniqueOrderNumber(){
         Integer orderNumber;
         do {
-            orderNumber =  (Integer) ThreadLocalRandom.current().nextInt(100);
+            orderNumber =  (Integer) ThreadLocalRandom.current().nextInt(10000) + 100;
         }while (plumberOrderRepository.existsByOrderNumber(orderNumber));
         return orderNumber;
     }

@@ -42,7 +42,7 @@ public class SecurityConfiguration implements WebMvcConfigurer {
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> {
-                    request.requestMatchers("/api/**").permitAll();
+                    request.requestMatchers("/app/v1/api/**").permitAll();
                     request.anyRequest().authenticated();});
 
         http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
@@ -60,7 +60,7 @@ public class SecurityConfiguration implements WebMvcConfigurer {
         System.out.println("addCorsMappings called");
         registry.addMapping("/**")
                 .allowedOrigins("http://localhost:3000")
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS")
+                .allowedMethods("GET", "POST", "PUT","PATCH", "DELETE", "HEAD", "OPTIONS")
                 .allowCredentials(true);
     }
 

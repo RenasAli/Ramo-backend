@@ -78,7 +78,7 @@ public class ProductItem {
     private Product product;
 
 
-    @JsonBackReference
+    //@JsonBackReference
     @OneToMany(mappedBy = "productItem")
     private List<SubImages> subImages= new ArrayList<>();
 

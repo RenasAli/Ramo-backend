@@ -52,7 +52,7 @@ public class OrderService {
     private int generateUniqueOrderNumber(){
         Integer orderNumber;
         do {
-            orderNumber =  (Integer) ThreadLocalRandom.current().nextInt(100);
+            orderNumber =  (Integer) ThreadLocalRandom.current().nextInt(10000) + 100;
         }while (orderRepository.existsByOrderNumber(orderNumber));
         return orderNumber;
     }

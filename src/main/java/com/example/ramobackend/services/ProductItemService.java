@@ -45,6 +45,7 @@ public class ProductItemService {
         productItem.setProduct(product);
         productItem.setProductTypeName(product.getProductName());
         productItem.setProductItemNumber(generateUniqueProductItemNumber());
+        productItem.setUrl(product.getProductUrl() + "/"+ productItem.getProductItemNumber());
         return productItemRepository.save(productItem);
     }
 
