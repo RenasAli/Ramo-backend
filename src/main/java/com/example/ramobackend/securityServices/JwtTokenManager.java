@@ -17,6 +17,7 @@ import java.util.Map;
 // https://github.com/joneikholmkea/JWTprep
 @Component
 public class JwtTokenManager {
+
     public static final long TOKEN_VALIDITY = 10 * 60 * 60 * 1000;
 
     @Value("${secret}")

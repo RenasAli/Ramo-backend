@@ -32,7 +32,7 @@ public class UserController {
     private JwtTokenManager jwtTokenManager;
     @Autowired
     private IUserService userService;
-    @PreAuthorize("isAuthenticated()")
+    //@PreAuthorize("isAuthenticated()")
     @PostMapping("/signup")
     public ResponseEntity<JwtResponseModel> signup(@RequestBody JwtRequestModel request){
         System.out.println("signup: username:" + request.getUsername() + " password: " + request.getUserPassword());
